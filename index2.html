@@ -192,16 +192,27 @@
         </div>
     </section>
 
-    <!-- Programs Section -->
-    <section class="programs" id="programs">
-        <div class="container">
-            <div class="section-header">
-                <h2 class="section-title">باقات البرامج</h2>
-                <p class="section-subtitle">اختر الباقة المناسبة لك وابدأ رحلة التغيير</p>
-            </div>
+   <section class="programs" id="programs">
+    <div class="container">
+        <div class="section-header">
+            <h2 class="section-title">باقات البرامج</h2>
+            <p class="section-subtitle">اختر الباقة المناسبة لك وابدأ رحلة التغيير</p>
+        </div>
+
+        <!-- Tabs -->
+        <div class="pricing-tabs">
+            <button class="tab-btn active" onclick="showProgramTab('monthly')">
+                الباقات الشهرية
+            </button>
+            <button class="tab-btn" onclick="showProgramTab('quarterly')">
+                باقات 3 شهور
+            </button>
+        </div>
+
+        <!-- Monthly -->
+        <div id="monthly" class="program-tab active">
             <div class="programs-grid">
-                
-                <!-- Starter Package -->
+
                 <div class="program-card">
                     <div class="program-header">
                         <h3 class="program-name">الباقة الأساسية</h3>
@@ -217,13 +228,17 @@
                         <li><i class="fas fa-check"></i> نظام غذائي شامل</li>
                         <li><i class="fas fa-check"></i> متابعة أسبوعية</li>
                         <li><i class="fas fa-check"></i> دعم واتساب</li>
-                        <li class="disabled"><i class="fas fa-times"></i> جلسات فيديو مباشرة</li>
-                        <li class="disabled"><i class="fas fa-times"></i> تعديلات غير محدودة</li>
                     </ul>
                     <a href="#contact" class="btn btn-outline">اختر الباقة</a>
                 </div>
 
-                <!-- Premium Package -->
+            </div>
+        </div>
+
+        <!-- Quarterly -->
+        <div id="quarterly" class="program-tab">
+            <div class="programs-grid">
+
                 <div class="program-card featured">
                     <div class="program-badge">
                         <i class="fas fa-crown"></i>
@@ -249,7 +264,6 @@
                     <a href="#contact" class="btn btn-primary">اختر الباقة</a>
                 </div>
 
-                <!-- VIP Package -->
                 <div class="program-card">
                     <div class="program-header">
                         <h3 class="program-name">باقة VIP</h3>
@@ -272,12 +286,63 @@
                 </div>
 
             </div>
-            <div class="programs-note">
-                <i class="fas fa-info-circle"></i>
-                <p>جميع الباقات تشمل استشارة مجانية قبل البدء + ضمان استرداد المبلغ خلال 14 يوم</p>
-            </div>
         </div>
-    </section>
+
+        <div class="programs-note">
+            <i class="fas fa-info-circle"></i>
+            <p>جميع الباقات تشمل استشارة مجانية قبل البدء + ضمان استرداد المبلغ خلال 14 يوم</p>
+        </div>
+
+    </div>
+</section>
+
+<style>
+.pricing-tabs {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.tab-btn {
+    padding: 12px 30px;
+    border: 2px solid #000;
+    background: transparent;
+    color: #000;
+    font-weight: 700;
+    cursor: pointer;
+    margin: 0 10px;
+    border-radius: 8px;
+    transition: 0.3s;
+}
+
+.tab-btn.active,
+.tab-btn:hover {
+    background: #000;
+    color: #fff;
+}
+
+.program-tab {
+    display: none;
+}
+
+.program-tab.active {
+    display: block;
+}
+</style>
+
+<script>
+function showProgramTab(tabId) {
+    document.querySelectorAll('.program-tab').forEach(tab => {
+        tab.classList.remove('active');
+    });
+
+    document.querySelectorAll('.tab-btn').forEach(btn => {
+        btn.classList.remove('active');
+    });
+
+    document.getElementById(tabId).classList.add('active');
+    event.target.classList.add('active');
+}
+</script>
 
     <!-- Transformation Section -->
     <section class="transformations">
