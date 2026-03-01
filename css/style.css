@@ -713,9 +713,15 @@ section {
 }
 
 .programs-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 30px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px; /* المسافة بين البطاقات */
+    justify-content: center; /* يخلي البطاقات في منتصف الصفحة */
+}
+
+.program-card {
+    flex: 1 1 300px; /* كل بطاقة تاخد على الأقل 300px، وتكبر لو في مساحة */
+    max-width: 350px; /* الحد الأقصى لعرض البطاقة */
 }
 
 @media (max-width: 992px) {
